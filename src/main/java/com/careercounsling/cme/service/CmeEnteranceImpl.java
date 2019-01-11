@@ -40,4 +40,15 @@ public class CmeEnteranceImpl implements CmeEnterance {
 //        return enternanceRepository.selectAllStreams();
         return  null;
     }
+    @Override
+    public List<String> Streams() {
+        return enternanceRepository.findStreams();
+    }
+    @Override
+    public List<EntranceExams> findByStreamName(String name) {
+        return enternanceRepository.findByStreamName(name);
+    }
+
+
+
 }

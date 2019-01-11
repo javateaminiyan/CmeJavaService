@@ -46,12 +46,22 @@ public class CmeServiceImpl implements CmeService {
         tenthRepository.deleteById(id);
     }
 
+    @Override
+    public List<String> Streams() {
+        return tenthRepository.findStreams();
+    }
+    @Override
+    public List<Tenth> findByStreamName(String name) {
+        return tenthRepository.findByStreamName(name);
+    }
+
+
+
 
     @Override
     public List<Tenth> getTenthRecord() {
         return tenthRepository.findAll();
     }
-
 
 
 }

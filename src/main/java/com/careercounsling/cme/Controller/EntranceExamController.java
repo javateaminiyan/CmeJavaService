@@ -1,7 +1,6 @@
 package com.careercounsling.cme.Controller;
 
 
-
 import com.careercounsling.cme.response.Error;
 
 import com.careercounsling.cme.response.Success;
@@ -48,19 +47,6 @@ public class EntranceExamController {
         return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.getEnternaceRecord()), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getAllStreams", method = RequestMethod.GET)
-    public ResponseEntity<Object> selectAllStreams() {
-        logger.info("success");
-
-        if (cmeService.getEnternaceRecord().size() == 0) {
-            return ResponseEntity.badRequest()
-                    .body(new Error(HttpStatus.BAD_REQUEST, "No Record Found"));
-        }
-
-
-        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.getAllStreams()), HttpStatus.OK);
-    }
-
 
 
 
@@ -88,5 +74,22 @@ public class EntranceExamController {
 
         return new ResponseEntity<>(new Success(HttpStatus.OK, "Category is deleted successsfully"), HttpStatus.OK);
     }
+
+
+    @RequestMapping(value = "/getAllStreams", method = RequestMethod.GET)
+    public ResponseEntity<Object> getAllStreams() {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.Streams()), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/getByStream/Stream/{name}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getStreamBasedValues(@PathVariable("name") String name) {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.findByStreamName(name)), HttpStatus.OK);
+    }
+
 }
 

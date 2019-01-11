@@ -2,6 +2,7 @@ package com.careercounsling.cme.service;
 
 import com.careercounsling.cme.Repo.ITIRepository;
 import com.careercounsling.cme.tables.ITI;
+import com.careercounsling.cme.tables.Tenth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,16 @@ public class CmeITIServiceImpl implements CmeITIService {
     public List<ITI> getITIRecord() {
         return itiRepository.findAll();
     }
+
+    @Override
+    public List<String> Streams() {
+        return itiRepository.findStreams();
+    }
+    @Override
+    public List<ITI> findByStreamName(String name) {
+        return itiRepository.findByStreamName(name);
+    }
+
+
 
 }

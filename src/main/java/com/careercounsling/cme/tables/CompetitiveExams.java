@@ -23,6 +23,8 @@ public class CompetitiveExams  implements Serializable {
     @Column(name="lastDatetoApply")
     private String LastDatetoApply;
 
+    public CompetitiveExams() {
+    }
 
     public Long getId() {
         return id;

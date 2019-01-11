@@ -63,6 +63,25 @@ public class ITIController {
     }
 
 
+
+
+    @RequestMapping(value = "/getAllStreams", method = RequestMethod.GET)
+    public ResponseEntity<Object> getAllStreams() {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.Streams()), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/getByStream/Stream/{name}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getStreamBasedValues(@PathVariable("name") String name) {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.findByStreamName(name)), HttpStatus.OK);
+    }
+
+
+
     @RequestMapping(value = "/deleteCategory/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         cmeService.deleteCategory(id);

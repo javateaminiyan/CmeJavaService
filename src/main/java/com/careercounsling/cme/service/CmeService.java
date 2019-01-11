@@ -17,7 +17,10 @@ public interface CmeService {
     void deleteCategory(Integer id);
 
 
+    List<String> Streams();
 
+
+    List<Tenth>  findByStreamName(String name);
 
     List<Tenth> getTenthRecord();
 }

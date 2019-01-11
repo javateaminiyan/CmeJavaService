@@ -15,12 +15,15 @@ import java.util.stream.Stream;
 public interface EnternanceRepository extends JpaRepository<EntranceExams, Long> {
 
 
-//    @Query("select u from EntranceExams u")
-//    List<EntranceExams> selectAllStreams();
 
-//
-//    @Procedure(name = "getAllStream")
-//    List<EntranceExams> selectAllStreams();
+ @Query(value = "{call getEntranceExam}", nativeQuery = true)
+ List<String> findStreams();
+
+
+
+ @Query("select j from EntranceExams j where streams=:streams")
+ List<EntranceExams> findByStreamName(String streams);
+
 
 
  }

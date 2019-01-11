@@ -16,4 +16,8 @@ public interface CmeITIService {
 
     List<ITI> getITIRecord();
 
+    List<String> Streams();
+
+
+    List<ITI>  findByStreamName(String name);
 }

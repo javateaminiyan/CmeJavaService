@@ -43,4 +43,15 @@ public class Cme12ServiceImpl implements Cme12Service {
     public List<Twelth> getTwelthRecord() {
         return twelthRepository.findAll();
     }
+
+
+
+    @Override
+    public List<String> Streams() {
+        return twelthRepository.findStreams();
+    }
+    @Override
+    public List<Twelth> findByStreamName(String name) {
+        return twelthRepository.findByStreamName(name);
+    }
 }

@@ -44,6 +44,24 @@ public class TwelthController {
     }
 
 
+
+
+    @RequestMapping(value = "/getAllStreams", method = RequestMethod.GET)
+    public ResponseEntity<Object> getAllStreams() {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.Streams()), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/getByStream/Stream/{name}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getStreamBasedValues(@PathVariable("name") String name) {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.findByStreamName(name)), HttpStatus.OK);
+    }
+
+
     @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
     public ResponseEntity<Object> createProduct(@RequestBody Twelth twelth) {
         cmeService.addCategory(twelth);

@@ -15,4 +15,9 @@ public interface CmeEnterance {
     List<EntranceExams> getEnternaceRecord();
 
     List<EntranceExams> getAllStreams();
+
+    List<String> Streams();
+
+
+    List<EntranceExams>  findByStreamName(String name);
 }

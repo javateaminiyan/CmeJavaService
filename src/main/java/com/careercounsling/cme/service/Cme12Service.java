@@ -17,4 +17,8 @@ public interface Cme12Service {
     List<Twelth> getTwelthRecord();
 
 
+    List<String> Streams();
+
+
+    List<Twelth>  findByStreamName(String name);
 }

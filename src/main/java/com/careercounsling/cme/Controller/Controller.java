@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@CrossOrigin(origins = "http://localhost:8085")
-@CrossOrigin(origins = "*", allowedHeaders = "*", allowCredentials = "false")
+
 
 @RequestMapping("/10th")
 public class Controller {
     private final CmeService cmeService;
-@Autowired
+    @Autowired
     private ProductRepository productRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
@@ -49,10 +49,23 @@ public class Controller {
     public ResponseEntity<Object> getAllProducts() {
 
 
-        return new ResponseEntity<>(new Success(HttpStatus.OK, productRepository.findAllApi() ), HttpStatus.OK);
+        return new ResponseEntity<>(new Success(HttpStatus.OK, productRepository.findAllApi()), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getAllStreams", method = RequestMethod.GET)
+    public ResponseEntity<Object> getAllStreams() {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.Streams()), HttpStatus.OK);
     }
 
 
+    @RequestMapping(value = "/getByStream/Stream/{name}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getStreamBasedValues(@PathVariable("name") String name) {
+
+
+        return new ResponseEntity<>(new Success(HttpStatus.OK, cmeService.findByStreamName(name)), HttpStatus.OK);
+    }
 
 
     @RequestMapping(value = "/addCategory", method = RequestMethod.POST)

@@ -2,9 +2,10 @@ package com.careercounsling.cme;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class CmeApplication {
+public class CmeApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(CmeApplication.class, args);
