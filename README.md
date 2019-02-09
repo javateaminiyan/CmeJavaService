@@ -1,8 +1,8 @@
-# CmeJavaService
+#JavaService
 
 
 
-Cme Project Service...
+ Project Service...
 
 
 
